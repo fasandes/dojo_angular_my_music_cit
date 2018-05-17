@@ -2,6 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 
 
+
+
 @Component({
   selector: 'app-playlist',
   templateUrl: './playlist.component.html',
@@ -20,7 +22,10 @@ export class PlaylistComponent implements OnInit {
 
   public selecionarMusica(musica:any) {
     console.log(musica);
+    
     this.removido.emit(musica);
   }
+
+  
 
 }

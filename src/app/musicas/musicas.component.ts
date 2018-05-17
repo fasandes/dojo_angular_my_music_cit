@@ -12,7 +12,8 @@ export class MusicasComponent implements OnInit {
   
   musicasSelecionadas: Array<any> = new Array<any>()
   @Input() listaMusicas: Array<any> = new Array<any>();
-  @Output() adicionado: EventEmitter<any> = new EventEmitter<any>()
+  @Output() adicionado: EventEmitter<any> = new EventEmitter<any>();
+  @Output() atualizarMusicasEvent: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 
@@ -20,8 +21,13 @@ export class MusicasComponent implements OnInit {
     
   }
 
-  public selecionarMusica(musica: any) {
+  public atualizarMusicas(musicas: Array<any>) {
+    console.log("filho 1");
+    this.atualizarMusicasEvent.emit(musicas);
+  }
 
+  public selecionarMusica(musica: any) {
+    console.log("evento selecionar musica")
     this.adicionado.emit(musica);
   }
 }

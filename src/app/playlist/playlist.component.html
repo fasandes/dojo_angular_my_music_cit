@@ -1,7 +1,20 @@
-<p>
+<app-pesquisa-playlist></app-pesquisa-playlist>
+<mat-list class="make-scrollable" style="height: 500px;overflow-y: auto">
+
+        
+    <mat-list-item *ngFor="let musica of musicasPlaylist">
+        <mat-icon mat-list-icon>music_note</mat-icon>
+        <h4 mat-line>{{musica.nome}}</h4>
+        <p mat-line> {{musica.artista.nome}} </p>
+        <mat-checkbox class="example-margin" (change)="selecionarMusica(musica)" ></mat-checkbox>
+    </mat-list-item>
+</mat-list>
+
+
+<!-- <p>
     Component Playlists
 </p>
-<app-pesquisa-playlist></app-pesquisa-playlist>
+
 <div class="row">
     <div class="col-md-12">
       
@@ -24,4 +37,4 @@
             </tr>
         </table>
     </div>
-</div>
+</div> -->

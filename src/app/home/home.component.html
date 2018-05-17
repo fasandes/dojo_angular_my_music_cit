@@ -1,29 +1,27 @@
 <div class="container home-body">
-  <p>
-    My Music
-  </p>
 
-  <div class="row">
-    <div class="col-md-5" style="border: solid 2px black">
-      <app-musicas [listaMusicas]="musicas" (adicionado)="atualizarPlaylist($event)"></app-musicas>
+  <div class="row" >
+    <div class="col-md-5">
+
+      <app-musicas [listaMusicas]="musicas" (adicionado)="atualizarPlaylist($event)" (atualizarMusicasEvent)="atualizarMusicas($event)"></app-musicas>
     </div>
 
-    <div class="col-md-2">
-      <div class="row">
-        <div class="col-md-12" style="margin-top: 200px">
-          <button style="width: 90px" (click)="criaPlaylist()" >Adicionar</button>
-        </div>
+    <div class="col-md-2" style="margin-top: 25%">
+      <div class="row" style="text-align: center; display: table; margin: 0 auto;">
+
+        <button mat-fab color="primary" (click)="criaPlaylist()" [(ngModel)]="fabAdd">
+          <mat-icon aria-label="adiconar">add</mat-icon>
+        </button>
       </div>
-      <div class="row">
-        <div class="col-md-12" style="margin-top: 20px">
-          <button style="width: 90px" (click)="removerMusicas()" >Remover</button>
-        </div>
+      <div class="row" style=" text-align: center; display: table; margin: 0 auto; margin-top: 50px">
+        <button mat-fab color="warn" (click)="removerMusicas()" [(ngModel)]="fabRemove">
+          <mat-icon aria-label="remover">remove_cicle</mat-icon>
+        </button>
+
       </div>
     </div>
 
-    <div class="col-md-5" style="border: solid 2px black">
-      <app-playlist [musicasPlaylist]="musicasPlaylist" (removido)="marcaMusicaRemocao($event)"></app-playlist>
+    <div class="col-md-5">
+      <app-playlist [musicasPlaylist]="musicasElencadas" (removido)="marcaMusicaRemocao($event)"></app-playlist>
     </div>
   </div>
-
-</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 import {MusicaService} from '../musicas.service'
 
 @Component({
@@ -7,6 +7,8 @@ import {MusicaService} from '../musicas.service'
   styleUrls: ['./pesquisa-playlist.component.css']
 })
 export class PesquisaPlaylistComponent implements OnInit {
+
+  @Output() atualizarMusicas: EventEmitter<any> = new EventEmitter<any>()
 
   constructor(private musicaService: MusicaService) { }
 
@@ -17,6 +19,8 @@ export class PesquisaPlaylistComponent implements OnInit {
     this.musicaService.getPlaylists(nomeUsuario)
       .then((result: any) => {
         console.log("usuario : " + result);
+        this.atualizarMusicas.emit(result.json())
+        
       });
    
   }

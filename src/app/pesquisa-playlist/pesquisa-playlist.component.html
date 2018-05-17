@@ -1,4 +1,10 @@
-<div class="row">
+<form>
+        <mat-form-field>
+          <input matInput placeholder="Nome Usuario" name="nomeUsuario" ngModel (keyup.enter)="pesquisar($event.target.value)" required/>
+        </mat-form-field>
+      </form>
+
+<!-- <div class="row">
     <div class="col-md-12">
       
         <p>Pesquisa</p>
@@ -7,4 +13,4 @@
       
     </div>
   
-  </div>
+  </div> -->
